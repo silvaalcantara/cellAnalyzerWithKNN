@@ -1,52 +1,54 @@
 {% extends 'base.html' %}
 
-{% block head %}
-
-<head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript"
-    src="{{ url_for('static', filename='js/myscript.js') }}"></script>
-</head>
-
-<title>Cell Analyzer</title>
-{% endblock %}
-
 {% block body %}
 
+    <h1 style="text-align: center;">Cell Analyzer</h1>
+
     {% if table_html|length < 1 %}
-        <div class="content">
-            <h1 style="text-align: center;">Cell Analyzer</h1>
-            
+        <div class="container">            
             <h4 style="text-align: center;">Não foi possivel carregar o dataframe!</h4>
         </div>
     {% else %}
-        <div class="content">
-            <h1 style="text-align: center;">Cell Analyzer</h1>
+        <div class="container">
 
             <h4 style="text-align: center;">Dataframe carregado com sucesso!</h4>
 
-            <br>
+            <div class="text-center" style="padding-bottom: 30px; padding-top: 30px;">
 
-            <div style="margin: 0 auto;">
-                <button id="open">Show Dataframe</button>
-                <button id="close">Hide Dataframe</button>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button id="open" type="button" class="btn btn-secondary">Show Dataframe</button>
+                    <button id="close" type="button" class="btn btn-secondary">Hide Dataframe</button>
+                </div>
+
             </div>
 
-            <div id="all_data" style="display: none;">
-                <div id="all_data" style="overflow: auto; height: 500px; padding-bottom: 50px;">
-                    {{table_html | safe}}
-                </div>
-    
-                <br>
-    
-                <div style="width: 70%; overflow: hidden; padding-top: 50px; margin: 0 auto;">
-                    <div style="width: max-content; float: left;"> 
-                        {{max_values | safe}}
-                    </div>
-                    <div style="width: max-content; float: right;">
-                        {{type_values | safe}}
+            <div id="all_data" class="container">
+
+                <div class="row">
+                    <div id="all_data" class="col" style="overflow: auto; height: 500px; padding-bottom: 50px;">
+                        {{table_html | safe}}
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col" style="width: 70%; overflow: hidden; padding-top: 50px; margin: 0 auto;">
+                        <div style="width: max-content; float: left; text-align: center;"> 
+                            <h5>Max Values</h5>
+                            {{max_values | safe}}
+                        </div>
+                        <div style="width: max-content; float: right; text-align: center;">
+                            <h5>Type Values</h5>
+                            {{type_values | safe}}
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="text-center" style="padding-bottom: 30px; padding-top: 30px;">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button id="normalize" type="button" class="btn btn-secondary">Normalize dataframe</button>
+                    </div>
+                </div> 
+
             </div>
         
         </div>
