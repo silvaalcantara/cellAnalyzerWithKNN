@@ -30,22 +30,26 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col" style="width: 70%; overflow: hidden; padding-top: 50px; margin: 0 auto;">
-                        <div style="width: max-content; float: left; text-align: center;"> 
-                            <h5>Max Values</h5>
-                            {{max_values | safe}}
-                        </div>
-                        <div style="width: max-content; float: right; text-align: center;">
-                            <h5>Type Values</h5>
-                            {{type_values | safe}}
-                        </div>
+                <div class="row" style="padding-top: 30px;">
+                    <div class="col-auto" style="text-align: center; margin: 0 auto;"> 
+                        <h5>Max Values</h5>
+                        {{max_values | safe}}
+                    </div>
+                    <div class="col-auto" style="text-align: center; margin: 0 auto;"> 
+                        <h5>Min Values</h5>
+                        {{min_values | safe}}
+                    </div>
+                    <div class="col-auto" style="text-align: center; margin: 0 auto;">
+                        <h5>Type Values</h5>
+                        {{type_values | safe}}
                     </div>
                 </div>
     
                 <div class="text-center" style="padding-bottom: 30px; padding-top: 30px;">
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button id="normalize" type="button" class="btn btn-secondary">Normalize dataframe</button>
+                        <form action="/" method="POST">
+                            <input type="submit" value="Normalize">
+                        </form>
                     </div>
                 </div> 
 
